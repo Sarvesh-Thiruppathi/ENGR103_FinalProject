@@ -89,7 +89,8 @@ void getUserInput() {
     }
 
     CircuitPlayground.setPixelColor(pixel,0,0,100);
-    delay(300);
+    responsiveDelay(300);
+
     if(userPattern[pixel] == 0){
       CircuitPlayground.setPixelColor(pixel,0,0,0);
     }
@@ -101,8 +102,7 @@ void getUserInput() {
     {
       CircuitPlayground.setPixelColor(pixel, 255,0,0); //Set Color to Red
     }
-    delay(300);
-
+    responsiveDelay(300);
   }
   switchChangeFlag = false;
 
@@ -121,4 +121,29 @@ int getLevelScore() {
   return score;
 }
 
+//Displays score using pixels in Binary
+void displayScore(int score) {
+  CircuitPlayground.clearPixels();
 
+  for(int i = 0; i <= 7; i++)
+  {
+    CircuitPlayground.setPixelColor(i, 255,255,255);
+  }
+
+  //TODO: Update pixels to show score!
+
+}
+
+//Constantly checks if any buttons were pressed every 10ms. This causes buttton responsiveness to increase!
+void responsiveDelay(int time){
+  for(int i = 0; i<= int(time/10); i++)
+  {
+    if(!(button2PressFlag || button1PressFlag)){
+      delay(10);
+    }
+    else
+    {
+      return;
+    }
+  }
+}
