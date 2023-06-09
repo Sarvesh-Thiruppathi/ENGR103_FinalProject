@@ -22,6 +22,8 @@ void setup() {
   CircuitPlayground.begin();
   Serial.begin(9600);
   CircuitPlayground.setBrightness(5);
+  randomSeed(analogRead(A1)); //Use enverionmental randomness (electrical noise) as a seed for CPX Board to generate random patterns!
+
 
   //Setup Button and Switch Interupts
   attachInterrupt(digitalPinToInterrupt(button1Pin), button1Update, FALLING); 
@@ -36,25 +38,26 @@ void setup() {
 void loop() {
   resetPatterns(); 
 
-  generatePattern(level);
-  displayPattern();
+  if (level <=10){
+    generatePattern(level);
+    displayPattern();
 
-  while(!switchChangeFlag){
-    delay(10);
-  }
-  switchChangeFlag = false;
+    while(!switchChangeFlag){
+      delay(10);
+    }
+    switchChangeFlag = false;
 
-  getUserInput();
-  
-  score += getLevelScore();
-  Serial.println(score);
+    getUserInput();
+    
+    score += getLevelScore();
+    Serial.println(score);
 
-  if (level <=9){
-  level++;
+    
+    level++;
   }
   else
   {
-    //Todo End game and show score in binary
+    displayScore(score);
   }
-
+  Serial.println("Level: " + String(level));
 }

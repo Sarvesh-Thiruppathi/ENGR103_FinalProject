@@ -21,11 +21,10 @@ void generatePattern(int level) {
     {
       int randValue = random(0, 3);
        {
-        if (randValue == 1 || randValue == 2) {
+        if ((randValue == 1 || randValue == 2) && (pattern[i] == 0)){
           pixelsUsed++;
+          pattern[i] = randValue;
         }
-      
-        pattern[i] = randValue;
       } 
     }
   }
@@ -123,14 +122,61 @@ int getLevelScore() {
 
 //Displays score using pixels in Binary
 void displayScore(int score) {
-  CircuitPlayground.clearPixels();
+
+  if(score > 255 && score < 0)
+  {
+    return;
+  }
 
   for(int i = 0; i <= 7; i++)
   {
     CircuitPlayground.setPixelColor(i, 255,255,255);
   }
 
-  //TODO: Update pixels to show score!
+  int leftOver = score;
+
+  //Display number in base 2 using LEDs -- White = Not activated or 0, Red = Activated or 1
+  while(leftOver != 0)
+  {
+    if (leftOver >= 128){
+      CircuitPlayground.setPixelColor(7, 255,0,0);
+      leftOver -= 128;
+    }
+    else if (leftOver >= 64){
+      CircuitPlayground.setPixelColor(6, 255,0,0);
+      leftOver -= 64;
+    }
+    else if (leftOver >= 32){
+      CircuitPlayground.setPixelColor(5, 255,0,0);
+      leftOver -= 32;
+    }
+    else if (leftOver >= 16){
+      CircuitPlayground.setPixelColor(4, 255,0,0);
+      leftOver -= 16;
+    }
+    else if (leftOver >= 8){
+      CircuitPlayground.setPixelColor(3, 255,0,0);
+      leftOver -= 8;
+    }
+    else if (leftOver >= 4){
+      CircuitPlayground.setPixelColor(2, 255,0,0);
+      leftOver -= 4;
+    }
+    else if (leftOver >= 2){
+      CircuitPlayground.setPixelColor(1, 255,0,0);
+      leftOver -= 2;
+    }
+    else if (leftOver >= 1){
+      CircuitPlayground.setPixelColor(0, 255,0,0);
+      leftOver -= 1;
+    }
+  }
+
+  while(true)
+  {
+    //Waits forever
+    delay(10);
+  }
 
 }
 
