@@ -36,6 +36,7 @@ void setup() {
 }
 
 void loop() {
+  Serial.println("Level: " + String(level));
   resetPatterns(); 
 
   if (level <=10){
@@ -52,6 +53,7 @@ void loop() {
     score += getLevelScore();
     Serial.println(score);
 
+    //ToDO Can use the clock demo sounds to make it say a time
     
     level++;
   }
@@ -59,5 +61,4 @@ void loop() {
   {
     displayScore(score);
   }
-  Serial.println("Level: " + String(level));
 }
