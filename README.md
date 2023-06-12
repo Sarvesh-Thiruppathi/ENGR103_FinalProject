@@ -1,11 +1,16 @@
-# ENGR103 Final Project - Pattern Matcher
+# ENGR103 Final Project - Pattern Matching Gamer
 
-### Concept
-When the game starts, the board will display a pattern using the 10 NeoPixels. The player is tasked with quickly memorizing the pattern and then utilizing a combination of inputs (buttons and switches) to recreate the pattern.
+### Overview of Concept
+When the game starts, the board will display a pattern using the NeoPixel Strip. The player is tasked with memorizing the pattern and then utilizing a combination of inputs (buttons and switches) to recreate the pattern.
 
-### Difficulty Progression
-The game will start with only a single NeoPixel and as the user progresses through levels, the number of NeoPixels used for the pattern will increase until the player reaches a stage where all ten NeoPixel are being used. To further increase difficulty beyond this, the pace will be sped up and the player will only have a short duration to memorize the pattern.
+### Difficulty Progression and Scoring
+The game will start with only a single NeoPixel and as the user progresses through levels, the number of NeoPixels used for the pattern will increase until the player reaches a stage where all ten NeoPixel are being used. Scoring will be based on the how many Pixels are correctly matched. Only one point can be earned on level one, two on level two and so on until the player reaches level ten by which point a total of fifty-five points.
 
-### Scoring
-Scoring will be based on the accuracy and time taken. The time taken for a level will be mapped in reverse to a min and max score for a level. This will ensure that the player isn’t penalized for taking the minimum amount of time while ensuring they still get some points despite spending a long time on a level.
+### Controls
+
+![Annotated Diagram of CPX Board](https://github.com/Sarvesh-Thiruppathi/ENGR103_FinalProject/assets/27435723/3ea50835-a2f0-4f86-aa0c-f5697d13ea53)
+
+**Left Button:** Used as a cursor to select the Pixel. The highlighted pixel can be identified by the blinking blue Pixel.
+**Right Button:** Used to change the color of the slected Pixel. The options are in the following order: Off -> White -> Red
+**Switch:** Flipping the switch advances the game to the next stage. It is used to start entering patterns once the player has memorized the pattern. Once the play finished entering the pattern, the switch can be pushed again to submit pattern for scoring and advancing to the next level.
 
