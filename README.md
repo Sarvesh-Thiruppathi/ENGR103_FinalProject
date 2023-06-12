@@ -11,6 +11,8 @@ The game will start with only a single NeoPixel and as the user progresses throu
 ![Annotated Diagram of CPX Board](https://github.com/Sarvesh-Thiruppathi/ENGR103_FinalProject/assets/27435723/3ea50835-a2f0-4f86-aa0c-f5697d13ea53)
 
 **Left Button:** Used as a cursor to select the Pixel. The highlighted pixel can be identified by the blinking blue Pixel.
+
 **Right Button:** Used to change the color of the slected Pixel. The options are in the following order: Off -> White -> Red
+
 **Switch:** Flipping the switch advances the game to the next stage. It is used to start entering patterns once the player has memorized the pattern. Once the play finished entering the pattern, the switch can be pushed again to submit pattern for scoring and advancing to the next level.
 
